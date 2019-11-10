@@ -67,7 +67,7 @@ public class WordController {
         Object[] keys = inputMap.keySet().toArray();
         for (int x = 0; x < keys.length; x++) {
             
-            if (temp != 0 && temp != inputMap.get(keys[x]) + 1) {
+            if (temp != 0 && temp != inputMap.get(keys[x]) - 1) {
                 return false;
             }
             
@@ -97,7 +97,7 @@ public class WordController {
 
     private Map<Character, Integer> getSortedEntries(Map<Character, Integer> charMap) {
         HashMap<Character, Integer> sortedResult = new LinkedHashMap<>();
-        charMap.entrySet().stream().sorted(Map.Entry.<Character, Integer>comparingByValue().reversed())
+        charMap.entrySet().stream().sorted(Map.Entry.<Character, Integer>comparingByValue())
                 .forEachOrdered(x -> sortedResult.put(x.getKey(), x.getValue()));
 
         return sortedResult;
